@@ -63,7 +63,7 @@ const FoodOrderPage = () => {
       image: "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
     },
   ];
-  const foodMessages = [
+  const foodMessages = [ // this object is created to pass the values of message and submessages of the very first food card seen on the home page
     {
       id: 1,
       message: "It's Dinner Time",
@@ -111,7 +111,6 @@ const FoodOrderPage = () => {
   return (
     <div className="bg-gray-100 min-h-screen pb-10">
       <Navbar className="fixed bottom-0 left-0 w-full bg-gray-800 text-white flex justify-around py-4 shadow-md z-10"></Navbar>
-      {/* Search Bar */}
       <div className="bg-red-500 text-white px-4 py-2">
         <div className="flex justify-between items-center">
           <div>
