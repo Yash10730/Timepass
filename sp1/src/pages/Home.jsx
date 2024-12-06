@@ -19,7 +19,7 @@ const FoodOrderPage = () => {
     },
     {
       id: 2,
-      name: "Paneer Butter Masala",
+      name: "Paneer Butter ",
       category: "North Indian",
       discount: "30% OFF",
       time: "20-25 min",
@@ -63,6 +63,43 @@ const FoodOrderPage = () => {
       image: "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
     },
   ];
+  const foodMessages = [
+    {
+      id: 1,
+      message: "It's Dinner Time",
+      subMessage: "Get your food ready in just 15 mins!",
+      image:
+        "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
+    },
+    {
+      id: 2,
+      message: "AAOJI KHAOJI",
+      subMessage: "INSTANTLY READY FOOD",
+      image:
+        "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
+    },
+    {
+      id: 3,
+      message: "Good Morning, Pinapple?",
+      subMessage: "Looks Juicy",
+      image:
+        "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
+    },
+    {
+      id: 4,
+      message: "It's Dinner Time",
+      subMessage: "Get your food ready in just 15 mins!",
+      image:
+        "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
+    },
+    {
+      id: 5,
+      message: "It's Dinner Time",
+      subMessage: "Get your food ready in just 15 mins!",
+      image:
+        "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
+    },
+  ];
 
   const [recommended, setRecommended] = useState(true);
 
@@ -82,24 +119,25 @@ const FoodOrderPage = () => {
             <p>NC-4 Tower</p>
           </div>
         </div>
-        <div className="flex items-center bg-white rounded-full p-2 mt-3">
+
+        {/* Search Bar */}
+        <div className="flex items-center bg-white rounded-full p-1 mt-1 shadow-md">
           <input
             type="text"
             placeholder="Search for 'Pizza'"
-            className="flex-grow outline-none px-2"
+            className="flex-grow outline-none px-4 py-2 rounded-full text-black"
           />
-          <img
-            className="w-5"
-            src="https://img.icons8.com/?size=100&id=7695&format=png&color=000000"
-            alt=""
-          />
-          <button className="text-red-500 px-2">
-            <i className="fas fa-search"></i>
+          <button className="flex items-center justify-center px-3">
+            <img
+              className="w-5 h-5"
+              src="https://img.icons8.com/?size=100&id=7695&format=png&color=000000"
+              alt="search"
+            />
           </button>
         </div>
       </div>
 
-      {/* Promotions */}
+      {/* First FoodCard */}
       <div
         className="flex space-x-20 overflow-x-auto p-4"
         style={{
@@ -109,56 +147,45 @@ const FoodOrderPage = () => {
           WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
         }}
       >
-        <div
-          className="flex-shrink-0"
-          style={{
-            minWidth: "220px", // Set a minimum width for each card
-            maxWidth: "220px", // Ensure it doesn't expand
-          }}
-        >
-          <FoodCard2 />
-        </div>
-        <div
-          className="flex-shrink-0"
-          style={{
-            minWidth: "220px", // Set a minimum width for each card
-            maxWidth: "220px", // Ensure it doesn't expand
-          }}
-        >
-          <FoodCard2 />
-        </div>
-        <div
-          className="flex-shrink-0"
-          style={{
-            minWidth: "220px", // Set a minimum width for each card
-            maxWidth: "220px", // Ensure it doesn't expand
-          }}
-        >
-          <FoodCard2 />
-        </div>
+        {" "}
+        {foodMessages.map((food, index) => (
+          <div
+            className="flex-shrink-0"
+            style={{
+              minWidth: "220px", // Set a minimum width for each card
+              maxWidth: "220px", // Ensure it doesn't expand
+            }}
+          >
+            <FoodCard2
+              message={food.message}
+              subMessage={food.subMessage}
+              image={food.image}
+            />
+          </div>
+        ))}
       </div>
 
       {/* Tabs */}
-      <div className="px-4 flex justify-around mt-4">
+      <div className="px-4 flex justify-around mt-4 border border-gray-300 rounded-md">
         <button
           onClick={() => setRecommended(true)}
-          className={`font-semibold ${
-            recommended ? "border-b-2 border-red-500" : "text-gray-500"
-          }`}
+          className={`w-1/2 py-2 font-semibold ${
+            recommended ? "bg-red-500 text-white" : "bg-white text-gray-500"
+          } rounded-l-md`}
         >
           Recommended
         </button>
         <button
           onClick={() => setRecommended(false)}
-          className={`font-semibold ${
-            !recommended ? "border-b-2 border-red-500" : "text-gray-500"
-          }`}
+          className={`w-1/2 py-2 font-semibold ${
+            !recommended ? "bg-red-500 text-white" : "bg-white text-gray-500"
+          } rounded-r-md`}
         >
-          Favourites
+          ❤ Favourites
         </button>
       </div>
 
-      {/* Food Items */}
+      {/* Second Food Card */}
       <div
         className="p-4 space-y-4 overflow-x-auto"
         style={{
@@ -237,13 +264,18 @@ const FoodOrderPage = () => {
         }}
       >
         <FixedFoodCard></FixedFoodCard>
-        <FixedFoodCard></FixedFoodCard>
-        <div className="relative flex items-center justify-center mb-1">
-          <div className="border-t border-gray-300 w-full"></div>
-          <span className="absolute bg-gray-100 px-4 text-gray-500">
-            All Canteens
-          </span>
+      </div>
+      <div className="flex items-center justify-center mb-1">
+        {/* Line before the text */}
+        <div className="border-t border-gray-300 w-full"></div>
+
+        {/* Text in the center */}
+        <div className="px-4 bg-gray-100 text-gray-500 whitespace-nowrap text-center">
+          ALL CANTEENS
         </div>
+
+        {/* Line after the text */}
+        <div className="border-t border-gray-300 w-full"></div>
       </div>
       <div
         className="p-4 space-y-4 overflow-x-auto"

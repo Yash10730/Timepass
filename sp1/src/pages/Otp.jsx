@@ -1,32 +1,30 @@
-import React, { useState , useRef} from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Otp = () => {
-  // State for OTP input
-  const inputsRef = useRef([]);
-  const [user, setUser] = useState({ otp: "" });
+  const inputsRef = useRef([]); // References for OTP input fields
   const navigate = useNavigate();
 
   // Function to handle OTP input changes
-  const handleOTPChange = (e) => {
+  const handleOTPChange = (e, index) => {
     const { value } = e.target;
-    // Update the `otp` field in the user object
-    
+
+    // Move focus to the next input if a single character is entered
     if (value.length === 1 && index < 5) {
-      inputsRef.current[index + 1].focus();
+      inputsRef.current[index + 1]?.focus();
     }
 
-    // Clear and move to the previous field if backspace is pressed
+    // Move focus to the previous input if backspace is pressed and the current field is empty
     if (value === "" && index > 0) {
-      inputsRef.current[index - 1].focus();
+      inputsRef.current[index - 1]?.focus();
     }
-    setUser({ ...user, otp: value });
   };
 
   // Function to handle submission of OTP
   const handleSubmit = () => {
-    console.log("Entered OTP:", user.otp);
-    // Add logic to verify OTP
+    const otp = inputsRef.current.map((input) => input.value).join("");
+    console.log("Entered OTP:", otp);
+    // Add logic to verify OTP (e.g., API call)
   };
 
   return (
@@ -48,7 +46,7 @@ const Otp = () => {
         An OTP has been sent to your registered email address.
       </p>
 
-      {/* OTP Input */}
+      {/* OTP Input Section */}
       <div className="flex justify-center space-x-2 mb-6">
         {[...Array(6)].map((_, index) => (
           <input
@@ -57,13 +55,7 @@ const Otp = () => {
             maxLength="1"
             ref={(el) => (inputsRef.current[index] = el)}
             className="w-12 h-12 border border-gray-300 rounded-lg text-center text-lg focus:ring focus:ring-red-300"
-            onChange={(e) => handleOTPChange(e,index)}
-            onKeyDown={(e) => {
-            if (e.key === "Backspace" && index > 0 && !e.target.value) {
-              inputsRef.current[index - 1].focus();
-            }
-            }}
-
+            onChange={(e) => handleOTPChange(e, index)}
           />
         ))}
       </div>

@@ -1,15 +1,16 @@
 import React from "react";
 
-const FoodCard2 = ({ name, type, discount, time, image, priceOff }) => {
+const FoodCard2 = ({ message, subMessage, image }) => {
   return (
     <div
       style={{
         border: "2px solid #ddd",
-        borderRadius: "8px",
+        color: "#886200",
+        borderRadius: "10px",
         padding: "10px",
         width: "300px",
-        height: "150px",
-        backgroundColor: "#fff",
+        height: "100px",
+        backgroundColor: "#EDEBCB",
         margin: "5px",
         boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
         display: "flex", // Flex container
@@ -33,27 +34,49 @@ const FoodCard2 = ({ name, type, discount, time, image, priceOff }) => {
             margin: 5, // Remove margin
           }}
         >
-          Hello food
+          {message}
         </h3>
         <p
           style={{
             fontSize: "14px",
-            color: "#777",
+            color: "#705819",
             margin: 5, // Minimal margin between text
           }}
         >
-          food2
+          {subMessage}
         </p>
+        <button
+          style={{
+            backgroundColor: "#886200", // Bright red background
+            color: "white", // White text for contrast
+            border: "2px solid #624a0b", // Slightly darker border
+            borderRadius: "8px", // Rounded corners
+            padding: "1px 2px", // Space around the text
+            fontSize: "16px", // Adjust font size
+            fontWeight: "bold", // Bold text
+            cursor: "pointer", // Pointer cursor on hover
+            transition: "background-color 0.3s ease", // Smooth hover effect
+            width: "100px", // Set width,
+          }}
+          onMouseEnter={
+            (e) => (e.target.style.backgroundColor = "#624a0b") // Darker background on hover
+          }
+          onMouseLeave={
+            (e) => (e.target.style.backgroundColor = "#886200") // Original background when not hovered
+          }
+        >
+          Order now
+        </button>
       </div>
 
       {/* Right Image Section */}
       <img
-        src="https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0"
-        alt={name}
+        src={image}
+        alt={message}
         style={{
-          width: "40%", // Limit the image width
+          width: "10%", // Limit the image width
           height: "100%", // Fill the card's height
-          borderRadius: "8px",
+          borderRadius: "10px",
           objectFit: "cover", // Ensure the image fits properly
           margin: "2px",
         }}

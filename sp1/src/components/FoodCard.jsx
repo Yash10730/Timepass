@@ -5,49 +5,62 @@ const FoodCard = ({ name, type, discount, time, image, priceOff }) => {
     <div
       style={{
         border: "2px solid #ddd",
-        borderRadius: "8px",
-        padding: "10px",
+        borderRadius: "20px",
+        overflow: "hidden", // Ensures child elements stay within the border radius
         width: "300px",
-        height: "170px",
-        marginleft: "10px",
+        height: "130px",
         backgroundColor: "#fff",
-        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+        boxShadow: "0 6px 16px rgba(0,0,0,0.2)",
         display: "flex",
-         // Ensures cards don’t shrink or grow
       }}
     >
-      <img
-        src="https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0"
-        alt={name}
-        style={{
-          borderRadius: "8px",
-          width: "40%",
-          height: "150px",
-          objectFit: "cover",
-        }}
-      />
+      {/* Left Side Image */}
       <div
         style={{
-          marginLeft: "10px",
-          display: "flex",
-          flexDirection: "column",
-          // justifyContent: "center",
+          width: "40%",
+          height: "100%",
         }}
       >
-        <h3 style={{ fontSize: "16px", fontWeight: "bold"}}>{name}</h3>
-        <p style={{ fontSize: "14px", color: "#777", margin: 0 }}>{type}type</p>
-        <p
+        <img
+          src={image || "https://via.placeholder.com/150"} // Use placeholder if no image
+          alt={name}
           style={{
-            fontSize: "14px",
-            color: "#000",
-            fontWeight: "bold",
-            margin: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
-        >
-          {discount}
-          {priceOff}
-        </p>
-        <p style={{ fontSize: "14px", color: "#555", margin: 0 }}>{time}</p>
+        />
+      </div>
+
+      {/* Right Side Content */}
+      <div
+        style={{
+          flex: 1,
+          padding: "10px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          <h3 style={{ fontSize: "16px", fontWeight: "bold", margin: 0 }}>
+            {name}
+          </h3>
+          <p style={{ fontSize: "14px", color: "#777", margin: 0 }}>{type}</p>
+        </div>
+        {/* {discount && (
+          <p
+            style={{
+              fontSize: "14px",
+              color: "#000",
+              fontWeight: "bold",
+              margin: "5px 0",
+            }}
+          >
+            {discount} {priceOff}
+          </p>
+        )} */}
+        <p style={{ fontSize: "14px", color: "#000", margin: 0 }}>⏰{time}</p>
       </div>
     </div>
   );
