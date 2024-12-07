@@ -62,6 +62,24 @@ const FoodOrderPage = () => {
       distance: "1.8 km",
       image: "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
     },
+    {
+      id: 7,
+      name: "Veg Biryani",
+      category: "South Indian",
+      discount: "20% OFF",
+      time: "25-30 min",
+      distance: "1.8 km",
+      image: "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
+    },
+    {
+      id: 8,
+      name: "Veg Biryani",
+      category: "South Indian",
+      discount: "20% OFF",
+      time: "25-30 min",
+      distance: "1.8 km",
+      image: "https://imgs.search.brave.com/4fOpRDRw4fvIC8d3r99iDW-IBR4jCXMp4Vir5fE8QMQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI1/MzgyNjg5NC9waG90/by92YXJpb3VzLWtp/bmRzLW9mLXZlZ2Fu/LXByb3RlaW4tc291/cmNlcy5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9NC0yZUZC/Ml9pSU5tVlFaTzJM/WVFpSGpLMUZsa3Bs/WlYwWVVneGJ1QXJI/OD0",
+    },
   ];
   const foodMessages = [ // this object is created to pass the values of message and submessages of the very first food card seen on the home page
     {
@@ -105,7 +123,7 @@ const FoodOrderPage = () => {
 
   // Filtered items based on the active tab
   const filteredItems = recommended
-    ? foodItems.slice(0, 6) // Dummy logic for "Recommended"
+    ? foodItems.slice(0, 8) // Dummy logic for "Recommended"
     : foodItems;
 
   return (
@@ -262,7 +280,7 @@ const FoodOrderPage = () => {
           WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
         }}
       >
-        <FixedFoodCard></FixedFoodCard>
+        <FixedFoodCard />
       </div>
       <div className="flex items-center justify-center mb-1">
         {/* Line before the text */}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -30,7 +31,13 @@ const Profile = () => {
     <div className="min-h-screen bg-gray-100 px-4 sm:px-8 lg:px-16 py-8">
       {/* Header */}
       <div className="flex items-center mb-6">
+        <NavLink
+        to="/home"
+        className="flex flex-col items-center text-gray-800 hover:text-black"
+        activeClassName="text-black"
+      >
         <button className="text-black text-2xl">&larr;</button>
+        </NavLink>
         <h1 className="text-center w-full text-xl font-bold">User Profile</h1>
       </div>
 

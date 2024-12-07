@@ -4,6 +4,7 @@ import Otp from "./pages/Otp.jsx";
 import Profile from "./pages/Profile.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
+import RestaurantMenu from "./components/RestaurantMenu.jsx";
 const App =()=>{
   const foodItems = [
     {
@@ -40,6 +41,7 @@ const App =()=>{
           <Route path="/Otp" element={<Otp />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Home" element={<Home />} />
+          <Route path="/RestaurantMenu" element={<RestaurantMenu />} />
         </Routes>
       </BrowserRouter>
     </>
