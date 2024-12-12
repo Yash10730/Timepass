@@ -5,6 +5,8 @@ import Profile from "./pages/Profile.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
+import Minimenu from "./components/Minimenu.jsx";
+import Cart from "./pages/Cart.jsx";
 const App =()=>{
   const foodItems = [
     {
@@ -42,6 +44,8 @@ const App =()=>{
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/RestaurantMenu" element={<RestaurantMenu />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Minimenu" element={<Minimenu />} />
         </Routes>
       </BrowserRouter>
     </>

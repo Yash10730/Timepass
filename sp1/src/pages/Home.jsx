@@ -125,6 +125,7 @@ const FoodOrderPage = () => {
   const filteredItems = recommended
     ? foodItems.slice(0, 8) // Dummy logic for "Recommended"
     : foodItems;
+    
 
   return (
     <div className="bg-gray-100 min-h-screen pb-10">
@@ -303,7 +304,7 @@ const FoodOrderPage = () => {
         }}
       >
         {/* First Layer */}
-        <div>
+        {/* <div>
           {filteredItems
             .slice(0, Math.ceil(filteredItems.length / 2))
             .map((item) => (
@@ -324,7 +325,7 @@ const FoodOrderPage = () => {
                 />
               </div>
             ))}
-        </div>
+        </div> */}
 
         {/* Second Layer */}
         <div>
@@ -339,7 +340,7 @@ const FoodOrderPage = () => {
                 }}
               >
                 <CanteenFoodCard
-                  name={item.name}
+                  name = {"Rock & Roll"} // name={item.name}
                   type={item.category}
                   discount={item.discount}
                   time={item.time}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//react icons
+// Import React Icons
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
 import { FaRegHeart } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { RxLapTimer } from "react-icons/rx";
 import { LuSquareDot } from "react-icons/lu";
 import { RiShieldStarFill } from "react-icons/ri";
+import Minimenu from "./Minimenu";
 
 const RestaurantMenu = () => {
   const restaurantInfo = {
@@ -20,7 +21,7 @@ const RestaurantMenu = () => {
     offer: "60% OFF up to Rs.100. Use code TRYNEW above Rs.159",
     hostel: "NC-3 Tower",
   };
-  //array of object
+
   const menuData = [
     {
       id: 1,
@@ -68,6 +69,8 @@ const RestaurantMenu = () => {
     bestSeller: false,
   });
 
+  const [selectedItem, setSelectedItem] = useState(null);
+
   const filteredMenu = menuData.filter((item) => {
     if (filters.bestSeller && !item.bestSeller) return false;
     if (!filters.veg && !item.veg) return false;
@@ -77,14 +80,14 @@ const RestaurantMenu = () => {
 
   return (
     <div className="bg-white p-4 max-w-screen-lg mx-auto">
-      {/* navbar */}
+      {/* Navbar */}
       <div className="w-full h-10 flex justify-between">
         <div className="mx-2 my-2 text-xl">
           <a href="./home">
             <FaArrowLeftLong />
           </a>
         </div>
-        <div className="list-none ">
+        <div className="list-none">
           <ul className="flex">
             <a href="./">
               <li className="mx-2 my-2 text-xl">
@@ -109,9 +112,10 @@ const RestaurantMenu = () => {
           </ul>
         </div>
       </div>
+
       {/* Restaurant Info */}
       <div className="text-center p-4 rounded-lg">
-        <h1 className=" text-4xl font-semibold">{restaurantInfo.name}</h1>
+        <h1 className="text-4xl font-semibold">{restaurantInfo.name}</h1>
         <p className="mt-4 text-base">{restaurantInfo.cuisines.join("  ")}</p>
         <div className="mt-2 text-center my-2">
           <span className="text-white bg-blue-700 font-bold p-1 rounded">
@@ -121,16 +125,6 @@ const RestaurantMenu = () => {
             {restaurantInfo.totalrating} ratings
           </span>
         </div>
-        <div className="bg-[#F8F8F8] mt-4 text-center text-sm border-[0.5px] border-[#D8D8D8] py-0.5 px-1 rounded-xl inline-block">
-          <span>
-            <RxLapTimer className="inline-block py-0.25 mx-1" />
-          </span>
-          <span className="px-2">{restaurantInfo.deliveryTime} min</span>
-          <span className="px-2">{restaurantInfo.distance} km</span>
-          <span>|</span>
-          <span className="px-2">{restaurantInfo.hostel}</span>
-        </div>
-        <br />
       </div>
 
       {/* Filters */}
@@ -167,7 +161,7 @@ const RestaurantMenu = () => {
       </div>
 
       {/* Menu List */}
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 ">
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
         {filteredMenu.map((item) => (
           <div
             key={item.id}
@@ -178,19 +172,40 @@ const RestaurantMenu = () => {
               <span className="font-bold">₹{item.price}</span>
               <p className="text-gray-500">{item.description}</p>
             </div>
-            <div className="relative w-2/5 h-full ">
+            <div className="relative w-2/5 h-full">
               <img
                 src={item.image}
                 alt={item.name}
                 className="w-full h-44 rounded-lg object-cover"
               />
-              <button className="absolute translate-x-7 -translate-y-6  z-1 px-8 py-1 rounded-lg font-bold border-2 border-red-500 bg-red-100 text-red-500 ">
+              <button
+                className="absolute translate-x-7 -translate-y-6  z-1 px-8 py-1 rounded-lg font-bold border-2 border-red-500 bg-red-100 text-red-500"
+                onClick={() => setSelectedItem(item)}
+              >
                 ADD +
               </button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Modal */}
+      {selectedItem && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
+          {/* <div className="bg-white rounded-lg p-6 w-96">
+            <h2 className="text-2xl font-bold">{selectedItem.name}</h2>
+            <p>{selectedItem.description}</p>
+            <p className="font-bold">₹{selectedItem.price}</p>
+            <button
+              className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg"
+              onClick={() => setSelectedItem(null)}
+            >
+              Close
+            </button>
+          </div> */}
+          <Minimenu /> 
+        </div>
+      )}
     </div>
   );
 };
