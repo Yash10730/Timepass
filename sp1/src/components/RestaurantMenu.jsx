@@ -70,6 +70,9 @@ const RestaurantMenu = () => {
   });
 
   const [selectedItem, setSelectedItem] = useState(null);
+  const handleCloseMiniMenu = () => {
+     setSelectedItem(null);
+   };
 
   const filteredMenu = menuData.filter((item) => {
     if (filters.bestSeller && !item.bestSeller) return false;
@@ -192,18 +195,7 @@ const RestaurantMenu = () => {
       {/* Modal */}
       {selectedItem && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
-          {/* <div className="bg-white rounded-lg p-6 w-96">
-            <h2 className="text-2xl font-bold">{selectedItem.name}</h2>
-            <p>{selectedItem.description}</p>
-            <p className="font-bold">₹{selectedItem.price}</p>
-            <button
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg"
-              onClick={() => setSelectedItem(null)}
-            >
-              Close
-            </button>
-          </div> */}
-          <Minimenu /> 
+          <Minimenu onClose={handleCloseMiniMenu} />
         </div>
       )}
     </div>
