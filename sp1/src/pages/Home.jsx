@@ -125,7 +125,7 @@ const FoodOrderPage = () => {
   const filteredItems = recommended
     ? foodItems.slice(0, 8) // Dummy logic for "Recommended"
     : foodItems;
-    
+
 
   return (
     <div className="bg-gray-100 min-h-screen pb-10">
@@ -135,6 +135,13 @@ const FoodOrderPage = () => {
           <div>
             <p className="font-bold">Hostel</p>
             <p>NC-4 Tower</p>
+            <button
+              className="flex items-center justify-center px-3"
+              onClick={() => window.location.href = "/login"}
+            >
+              Login
+            </button>
+
           </div>
         </div>
 
@@ -187,17 +194,15 @@ const FoodOrderPage = () => {
       <div className="px-4 flex justify-around mt-4 border border-gray-300 rounded-md">
         <button
           onClick={() => setRecommended(true)}
-          className={`w-1/2 py-2 font-semibold ${
-            recommended ? "bg-red-500 text-white" : "bg-white text-gray-500"
-          } rounded-l-md`}
+          className={`w-1/2 py-2 font-semibold ${recommended ? "bg-red-500 text-white" : "bg-white text-gray-500"
+            } rounded-l-md`}
         >
           Recommended
         </button>
         <button
           onClick={() => setRecommended(false)}
-          className={`w-1/2 py-2 font-semibold ${
-            !recommended ? "bg-red-500 text-white" : "bg-white text-gray-500"
-          } rounded-r-md`}
+          className={`w-1/2 py-2 font-semibold ${!recommended ? "bg-red-500 text-white" : "bg-white text-gray-500"
+            } rounded-r-md`}
         >
           ❤ Favourites
         </button>
@@ -340,7 +345,7 @@ const FoodOrderPage = () => {
                 }}
               >
                 <CanteenFoodCard
-                  name = {"Rock & Roll"} // name={item.name}
+                  name={"Rock & Roll"} // name={item.name}
                   type={item.category}
                   discount={item.discount}
                   time={item.time}
